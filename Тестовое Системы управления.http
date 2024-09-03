@@ -1,0 +1,49 @@
+@Тестовое_Системы_управления_HostAddress = http://localhost:5168
+
+# Получение списка пациентов с сортировкой и пагинацией
+GET {{Тестовое_Системы_управления_HostAddress}}/api/patients?sortField=LastName&page=1&pageSize=10
+Accept: application/json
+
+###
+
+# Получение конкретного пациента по ID
+GET {{Тестовое_Системы_управления_HostAddress}}/api/patients/1
+Accept: application/json
+
+###
+
+# Добавление нового пациента
+POST {{Тестовое_Системы_управления_HostAddress}}/api/patients
+Content-Type: application/json
+
+{
+  "LastName": "Иванов",
+  "FirstName": "Иван",
+  "MiddleName": "Иванович",
+  "Address": "г. Москва, ул. Ленина, д. 1",
+  "BirthDate": "1990-01-01",
+  "Gender": "Мужской",
+  "UparticipationId": 1
+}
+
+###
+
+# Обновление информации о пациенте
+PUT {{Тестовое_Системы_управления_HostAddress}}/api/patients/1
+Content-Type: application/json
+
+{
+  "LastName": "Петров",
+  "FirstName": "Петр",
+  "MiddleName": "Петрович",
+  "Address": "г. Москва, ул. Пушкина, д. 2",
+  "BirthDate": "1985-05-05",
+  "Gender": "Мужской",
+  "UparticipationId": 2
+}
+
+###
+
+# Удаление пациента по ID
+DELETE {{Тестовое_Системы_управления_HostAddress}}/api/patients/1
+Accept: application/json
